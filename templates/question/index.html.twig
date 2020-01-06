@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello QuestionController!{% endblock %}
+
+{% block body %}
+{% for question in questions %}
+<h3>{{ question.question }}</h3>
+{% endfor %}
+{% endblock %}

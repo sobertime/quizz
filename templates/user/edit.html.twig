@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit{% endblock %}
+
+{% block body %}
+{% if not app.user %}
+<h2 style="text-align:center;"> You're not connected ! </h2>
+{% else %}
+<div style="border:1px solid lightgrey;height:400px;width:400px;margin:auto;margin-top:5%;">
+<div style="margin-top:20%;margin-left:10%;">
+  <form action="{{ path('edit') }}" method="post">
+    <label for="">Username</label>
+    <input type="text" name="username" value="{{ app.user.username}}" style="margin-bottom:3%;"><br>
+    <label for="">Email</label>
+    <input type="email" name="email" value="{{ app.user.email}}"><br>
+    <button type="submit" class="btn btn-success"style="margin:45% 0 0 35%;">Save</button>
+</form>
+</div>
+</div>
+{% endif %}
+
+{% endblock %}

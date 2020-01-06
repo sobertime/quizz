@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block body %}
+{% if not app.user %}
+<h2> You're not connected ! </h2>
+{% else %}
+<div class="profil">
+  <h3 class="p_username">{{ app.user.username }}</h2>
+  <p class="p_mail">{{ app.user.email }}</p>
+  <a href="{{ path('edit') }}" class="btn btn-primary" style="margin-top: 50%;">Editer</a>
+  <a href="{{ path('logout') }}" class="btn btn-danger" style="margin-top: 50%;">Logout</a>
+</div>
+{% endif %}
+
+{% endblock %}

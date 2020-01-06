@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}Quizz{% endblock %}</title>
+  {% block stylesheets %}
+  <link href="https://fonts.googleapis.com/css?family=Yeon+Sung&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  {% endblock %}
+</head>
+
+<body>
+
+<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+  <a class="navbar-brand" href="/quiz"style="font-size:20px;font-style:italic;">Quizz</a>
+  <div>
+    {% if not app.user %}
+  <a class="navbar-brand" href="{{ path('user') }}"style="font-size:20px;font-style:italic;">Inscription</a>
+    <a class="navbar-brand" href="{{ path('login') }}"style="font-size:20px;font-style:italic;">Login</a>
+    {% else %}
+    <a class="navbar-brand" href="{{ path('profil') }}"style="font-size:20px;font-style:italic;">{{ app.user.username }}</a>
+  <a class="navbar-brand" href="{{ path('logout') }}"style="font-size:20px;font-style:italic;">Logout</a>
+  {% endif %}
+</div>
+</nav>
+
+{% block body %}{% endblock %}
+</body>
+
+</html>

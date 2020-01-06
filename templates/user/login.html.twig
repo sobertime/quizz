@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Login{% endblock %}
+
+{% block body %}
+<center class="border border-success" style="margin:auto;width:300px;margin-top:5%;"><strong>Login</strong>
+<form action="{{ path('login') }}" method="POST" style="width:280px;">
+ <div class="form-group">
+   <input type="text" class="form-control" required name="_username" placeholder="Email">
+ </div>
+ <div class="form-group">
+   <input type="password" class="form-control" required name="_password" placeholder="Password">
+ </div>
+ <div class="form-group">
+   <button type="submit" class="btn btn-success" name="button">Connexion</button>
+ </div>
+</form>
+</center>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends('base.html.twig')%}
+
+{% block body %}
+{% if not app.user %}
+<h3 style="text-align:center;margin-top:2%;margin-bottom:2%;">Welcome !</h3>
+{% else %}
+<h3 style="text-align:center;margin-top:2%;margin-bottom:2%;font-family: 'PT Sans', sans-serif;">Welcome {{ app.user.username }} !</h3>
+{% endif %}
+{% for categorie in categories %}
+<div class="card" style="width: 18rem;float:left;margin:0 3.5% 4% 5.5%;text-align:center;">
+  <img src="https://www.publicdomainpictures.net/pictures/40000/nahled/question-mark.jpg" class="card-img-top" alt="quizz">
+  <div class="card-body">
+    <h5 class="card-title" style="font-size:15.5px;font-weight: 600;">{{ categorie.name}}</h5>
+    <a href="/quiz/question/{{ categorie.id }}/{{ (categorie.id-1)*10+1 }}" class="btn btn-primary">Start</a>
+  </div>
+</div>
+{% endfor %}
+
+
+{% endblock %}
